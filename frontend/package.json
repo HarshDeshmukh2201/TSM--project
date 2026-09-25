@@ -23,7 +23,8 @@
     "react-dom": "^18.0.0",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.5.3",
-    "recharts": "^2.15.3"
+    "recharts": "^2.15.3",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
