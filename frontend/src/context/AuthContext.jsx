@@ -5,7 +5,14 @@ import Cookies from 'js-cookie';
 
 const AuthContext = createContext();
 
-axios.defaults.baseURL = 'http://localhost:5000';
+// Use the deployed API URL when set, otherwise fall back to localhost.
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_API_URL : '') ||
+  (typeof process !== 'undefined' ? process.env.VITE_API_URL : '') ||
+  'http://localhost:5000';
+
+axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
 
 const setupAxiosInterceptors = (token) => {

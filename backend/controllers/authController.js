@@ -3,10 +3,12 @@ import User from '../models/User.js';
 
 const generateToken = (res, userId) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
+  const isProduction = process.env.NODE_ENV === 'production';
   
   res.cookie('token', token, { 
     httpOnly: true, 
-    sameSite: 'strict', 
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'strict',
     maxAge: 604800000 
   });
   
