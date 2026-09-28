@@ -195,7 +195,7 @@ export default function Sidebar() {
                 TM
               </Box>
               <Typography variant="h6" fontWeight="bold" noWrap>
-                Task Manager 
+                Task  Manager 
               </Typography>
             </Box>
             <IconButton onClick={handleDrawerToggle} size="small">
