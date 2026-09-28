@@ -10,7 +10,6 @@ import {
   Button,
   IconButton,
   Tooltip,
-  useMediaQuery,
   Paper
 } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -25,7 +24,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 const UpcomingTasks = ({ loading, tasks }) => {
   const theme = useTheme();
-  const isXsScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
 
   // Format date to be more readable
   const formatDate = (dateString) => {

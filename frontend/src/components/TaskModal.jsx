@@ -29,7 +29,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function TaskModal({ open, onClose, onSubmit, task, mode = "create" }) {
+export default function TaskModal({ onEdit, open, onClose, onSubmit, task, mode = "create" }) {
   const theme = useTheme();
   const isView = mode === "view";
   const [formData, setFormData] = useState({
@@ -355,7 +355,7 @@ export default function TaskModal({ open, onClose, onSubmit, task, mode = "creat
           >
             Close
           </Button>
-          <Button 
+          <Button x
             onClick={() => {
               onEdit && onEdit(formData);
               onClose();

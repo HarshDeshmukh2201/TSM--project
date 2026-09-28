@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -8,7 +8,7 @@ const AuthContext = createContext();
 // Use the deployed API URL when set, otherwise fall back to localhost.
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  (typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_API_URL : '') ||
+  // eslint-disable-next-line no-undef
   (typeof process !== 'undefined' ? process.env.VITE_API_URL : '') ||
   'http://localhost:5000';
 
@@ -103,4 +103,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

@@ -9,7 +9,6 @@ import {
   alpha,
   Skeleton,
   Zoom,
-  useMediaQuery,
   Stack
 } from '@mui/material';
 
@@ -19,8 +18,7 @@ import PendingIcon from '@mui/icons-material/Pending';
 
 const TaskStatCards = ({ loading, stats, pageLoaded }) => {
   const theme = useTheme();
-  const isXsScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  
+
   const statCards = [
     {
       title: 'Total Tasks',

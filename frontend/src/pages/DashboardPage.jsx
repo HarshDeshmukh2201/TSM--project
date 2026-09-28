@@ -44,11 +44,24 @@ export default function DashboardPage() {
   // Responsive breakpoints
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isXsScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  const isSmScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isMdScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+
 
   // Fetch all data from APIs
   useEffect(() => {
+    // Get color for priority
+    const getPriorityColor = (priority) => {
+      switch(priority?.toLowerCase()) {
+        case 'high':
+          return theme.palette.error.main;
+        case 'medium':
+          return theme.palette.warning.main;
+        case 'low':
+          return theme.palette.success.main;
+        default:
+          return theme.palette.grey[500];
+      }
+    };
+
     const fetchDashboardData = async () => {
       try {
         // Fetch all tasks
@@ -100,20 +113,6 @@ export default function DashboardPage() {
     const pending = tasks.filter(task => !task.completed).length;
     
     return { total, completed, pending };
-  };
-
-  // Get color for priority
-  const getPriorityColor = (priority) => {
-    switch(priority?.toLowerCase()) {
-      case 'high':
-        return theme.palette.error.main;
-      case 'medium':
-        return theme.palette.warning.main;
-      case 'low':
-        return theme.palette.success.main;
-      default:
-        return theme.palette.grey[500];
-    }
   };
 
   // Get upcoming tasks (due in the next 7 days)

@@ -34,7 +34,6 @@ import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import TaskTable from "../components/TaskTable";
 import TaskModal from "../components/TaskModal";
-import { useAuth } from "../context/AuthContext";
 
 // Icons
 import AddIcon from "@mui/icons-material/Add";
@@ -47,7 +46,6 @@ import CloseIcon from "@mui/icons-material/Close";
 export default function TasksPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { user } = useAuth();
   const [pageLoaded, setPageLoaded] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
@@ -793,7 +791,6 @@ export default function TasksPage() {
                 alignItems: "center",
                 flexDirection: isMobile ? "column" : "row",
                 gap: isMobile ? 1 : 0,
-                alignItems: isMobile ? "flex-start" : "center",
               }}
             >
               <Typography variant="body2" color="text.secondary">
