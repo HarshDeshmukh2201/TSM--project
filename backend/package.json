@@ -5,11 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "start:auth": "node server-auth.js",
-    "start:crud": "node server-crud.js",
-    "dev:auth": "nodemon server-auth.js",
-    "dev:crud": "nodemon server-crud.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
